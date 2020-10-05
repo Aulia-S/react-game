@@ -4,10 +4,17 @@ import './index.css';
 import * as serviceWorker from './serviceWorker';
 
 class Square extends React.Component{
+  constructor(props){
+    super(props);
+    this.state= {
+      value: null
+    }
+  }
+
   render(){
     return (
-      <button className='square'>
-        {this.props.value}
+      <button className='square' onClick={() => {this.setState({value: 'X'})}}>
+        {this.state.value}
       </button>
     )
   }
@@ -20,7 +27,7 @@ class Board extends React.Component{
 
   render(){
     const status = 'Next player: X';
-    
+
     return(
       <div>
         <div className="status">{status}</div>
